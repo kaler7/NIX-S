@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6e5494;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Georgia', serif;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 1em;
+    width: 600px;
+}
+
+.search-bar button {
+    background-color: #fff;
+    border: none;
+    padding: px 15px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.user-cart span {
+    margin-left: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+main {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product p {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.product strong {
+    color: purple;
+}
