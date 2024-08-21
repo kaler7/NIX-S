@@ -66,29 +66,34 @@ nav ul li a {
 
 main {
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #797383;
 }
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+
 }
 
 .product {
     background-color: white;
     padding: 20px;
     text-align: center;
+    border-radius: 10%;
 }
 
 .product img {
     width: 100%;
     height: auto;
+    margin-top: 5px;
 }
 
 .product p {
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 1.1em;
+    ;
+    
 }
 
 .product strong {
