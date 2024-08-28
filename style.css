@@ -43,6 +43,7 @@ header {
     margin-left: 10px;
     font-size: 1.2em;
     cursor: pointer;
+    text-decoration: none;
 }
 
 nav ul {
@@ -99,3 +100,4 @@ main {
 .product strong {
     color: purple;
 }
+
