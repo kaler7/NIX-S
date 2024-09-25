@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <form action="">
-            <h1 class="title">Register</h1>
+            <h1 class="title">Login</h1>
             <label>
                 <i class="fa-solid fa-user"></i>
                 <input placeholder="username" type="text" id="username">
@@ -20,10 +20,10 @@
                 <i class="fa-solid fa-lock"></i>
                 <input placeholder="password" type="password" id="password">
             </label>
-            <button id="button">Crear sesión</button>
+            <button id="button" onclick="hizoClick()">Iniciar sesión</button>
         </form>
         
-        <a id="create-session-button" href="index.html">Iniciar sesión</a>
+        <a id="create-session-button" href="cerrarsesion.php">Crear sesión</a>
     </div>
 
     <script src="main.js"></script>
