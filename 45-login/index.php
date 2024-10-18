@@ -10,22 +10,22 @@
 </head>
 <body>
     <div class="container">
-        <form action="">
-            <h1 class="title">Login</h1>
-            <label>
-                <i class="fa-solid fa-user"></i>
-                <input placeholder="username" type="text" id="username">
-            </label>
-            <label>
-                <i class="fa-solid fa-lock"></i>
-                <input placeholder="password" type="password" id="password">
-            </label>
-            <button id="button" onclick="hizoClick()">Iniciar sesión</button>
-        </form>
-        
-        <a id="create-session-button" href="cerrarsesion.php">Crear sesión</a>
+    <form action="login.php" method="POST">
+        <h1 class="title">Iniciar Sesion en NIX´S</h1>
+        <label>
+            <i class="fa-solid fa-user"></i>
+            <input placeholder="username" type="text" id="username" name="username" required>
+        </label>
+        <label>
+            <i class="fa-solid fa-lock"></i>
+            <input placeholder="password" type="password" id="password" name="password" required>
+        </label>
+        <button id="button" type="submit">Iniciar sesión</button>
+    </form>
+    <a id="create-session-button" href="cerrarsesion.php">Crear sesión</a>
+    <a id="create-session-button" href="../home.php">Home</a>
+
     </div>
 
-    <script src="main.js"></script>
 </body>
 </html>

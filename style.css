@@ -100,4 +100,8 @@ main {
 .product strong {
     color: purple;
 }
+.logotext{
+    color: white;
+    text-decoration: none;
+}
 

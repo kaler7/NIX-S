@@ -1,3 +1,6 @@
+<?php
+include("../bd.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,22 +26,10 @@
             <button id="button">Crear sesión</button>
         </form>
         
-        <a id="create-session-button" href="index.pxp">Iniciar sesión</a>
+        <a id="create-session-button" href="index.php">Iniciar sesión</a>
+        <a id="create-session-button" href="../home.php">Home</a>
     </div>
-    <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nixs";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Comprobar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-?>
+    
 
 
 </body>
