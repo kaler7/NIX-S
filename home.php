@@ -20,6 +20,12 @@
             </form>
         </div>
         <div class="user-cart">
+            <?php
+            session_start();
+            if (isset($_SESSION['usuario'])) {
+                echo $_SESSION['usuario'];
+            }
+            ?>
             <span>🛒</span>
             <a class="fa-solid fa-user" href="45-login/index.php"></a>
         </div>

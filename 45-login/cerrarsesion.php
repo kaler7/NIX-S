@@ -13,15 +13,15 @@ include("../bd.php");
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form action="registro.php" method="POST">
             <h1 class="title">Register</h1>
             <label>
                 <i class="fa-solid fa-user"></i>
-                <input placeholder="username" type="text" id="username">
+                <input placeholder="username" name="username" type="text" id="username" required>
             </label>
             <label>
                 <i class="fa-solid fa-lock"></i>
-                <input placeholder="password" type="password" id="password">
+                <input placeholder="password" type="password" id="password" name="password" required>
             </label>
             <button id="button">Crear sesión</button>
         </form>
