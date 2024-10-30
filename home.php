@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="logo">
-            <h1><a class="logotext" href ="home.php"> NIX'S </a></h1>
+            <h1><a class="logotext" href="home.php"> NIX'S </a></h1>
         </div>
         <div class="search-bar">
             <form method="GET" action="">
@@ -26,7 +26,7 @@
                 echo $_SESSION['usuario'];
             }
             ?>
-            <span>🛒</span>
+            <span><a class="logotext" href="carrito.php">🛒</a></span>
             <a class="fa-solid fa-user" href="45-login/index.php"></a>
         </div>
     </header>
@@ -42,33 +42,41 @@
     <main>
         <div class="product-grid" id="product-grid">
             <?php
+            // Inicializa el carrito si no existe
+            if (!isset($_SESSION['carrito'])) {
+                $_SESSION['carrito'] = [];
+            }
+
             // Array simulado de productos
             $productos = [
-                ['nombre' => 'DC Court Graffik', 'precio' => '$139.999', 'imagen' => 'imagenes/dc court graffik.jpg'],
-                ['nombre' => 'DC Black Sabbath', 'precio' => '$999.999.999', 'imagen' => 'imagenes/dc black sabbath.jpg'],
-                ['nombre' => 'Jordan 4 Retro', 'precio' => '$249.999', 'imagen' => 'imagenes/jordan4.avif'],
-                ['nombre' => 'Nike Air', 'precio' => '$220.000', 'imagen' => 'imagenes/Nike-Air-Force-One-Low-Athletic-Club-Sail-Beige-Morado-Cafe-para-mujer-y-hombre-y-nino-Sneakers-online-tenis-zapatillas-shoes-en-colombia-en-oferta3.webp'],
-                ['nombre' => 'Adidas Campus', 'precio' => '$220.000', 'imagen' => 'imagenes/adidas campus.jpg'],
-                ['nombre' => 'Adidas Samba', 'precio' => '$220.000', 'imagen' => 'imagenes/adidas sambaaaaaaaaaaaaaaaaaa.png'],
-                ['nombre' => 'Puma Suede XL', 'precio' => '$139.999', 'imagen' => 'imagenes/puma suede xl.jpg'],
-                ['nombre' => 'Puma White', 'precio' => '$159.999', 'imagen' => 'imagenes/puma white.jfif'],
+                ['id' => 1, 'nombre' => 'DC Court Graffik', 'precio' => 139999, 'imagen' => 'imagenes/dc court graffik.jpg'],
+                ['id' => 2, 'nombre' => 'DC Black Sabbath', 'precio' => 999999999, 'imagen' => 'imagenes/dc black sabbath.jpg'],
+                ['id' => 3, 'nombre' => 'Jordan 4 Retro', 'precio' => 249999, 'imagen' => 'imagenes/jordan4.avif'],
+                ['id' => 4, 'nombre' => 'Nike Air', 'precio' => 220000, 'imagen' => 'imagenes/Nike-Air-Force-One-Low-Athletic-Club-Sail-Beige-Morado-Cafe-para-mujer-y-hombre-y-nino-Sneakers-online-tenis-zapatillas-shoes-en-colombia-en-oferta3.webp'],
+                ['id' => 5, 'nombre' => 'Adidas Campus', 'precio' => 220000, 'imagen' => 'imagenes/adidas campus.jpg'],
+                ['id' => 6, 'nombre' => 'Adidas Samba', 'precio' => 220000, 'imagen' => 'imagenes/adidas sambaaaaaaaaaaaaaaaaaa.png'],
+                ['id' => 7, 'nombre' => 'Puma Suede XL', 'precio' => 139999, 'imagen' => 'imagenes/puma suede xl.jpg'],
+                ['id' => 8, 'nombre' => 'Puma White', 'precio' => 159999, 'imagen' => 'imagenes/puma white.jfif'],
             ];
 
             // Obtener el término de búsqueda
             $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 
-            // Verificar si hay productos que mostrar
-            if (empty($productos)) {
-                echo '<p>No hay productos disponibles.</p>';
-            } else {
-                // Filtrar y mostrar productos
-                foreach ($productos as $producto) {
-                    if ($search === '' || strpos(strtolower($producto['nombre']), $search) !== false) {
-                        echo '<div class="product">';
-                        echo '<img src="' . htmlspecialchars($producto['imagen']) . '" alt="' . htmlspecialchars($producto['nombre']) . '">';
-                        echo '<p>' . htmlspecialchars($producto['nombre']) . '<br><strong>' . htmlspecialchars($producto['precio']) . '</strong></p>';
-                        echo '</div>';
-                    }
+            // Filtrar y mostrar productos
+            foreach ($productos as $producto) {
+                if ($search === '' || strpos(strtolower($producto['nombre']), $search) !== false) {
+                    echo '<div class="product">';
+                    echo '<img src="' . htmlspecialchars($producto['imagen']) . '" alt="' . htmlspecialchars($producto['nombre']) . '">';
+                    echo '<p>' . htmlspecialchars($producto['nombre']) . '<br><strong>$' . htmlspecialchars(number_format($producto['precio'], 0, ',', '.')) . '</strong></p>';
+                    echo '<form method="GET" action="carrito.php">'; // Formulario para agregar al carrito
+                    echo '<input type="hidden" name="action" value="add">';
+                    echo '<input type="hidden" name="product_id" value="' . $producto['id'] . '">';
+                    echo '<input type="hidden" name="price" value="' . $producto['precio'] . '">';
+                    echo '<label for="quantity">Cantidad:</label>';
+                    echo '<input type="number" name="quantity" min="1" value="1" required>'; // Campo de cantidad
+                    echo '<button type="submit">Agregar al Carrito</button>'; // Botón de agregar
+                    echo '</form>';
+                    echo '</div>';
                 }
             }
             ?>
